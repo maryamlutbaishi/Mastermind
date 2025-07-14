@@ -1,0 +1,63 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bitcount+Grid+Double:wght@100..900&family=Londrina+Shadow&family=Pacifico&display=swap');
+
+body {
+  background-color:#feca1e;
+  font-family: "Bitcount Grid Double", system-ui;
+  font-size: 30px;
+  
+  padding: 30px;
+  text-align: center;
+}
+
+h1 {
+  color:black;
+  margin-bottom: 30px;
+  
+}
+#board{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.attempt-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 8px 0;
+}
+
+
+.box {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #999;
+  margin: 0 4px;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction:column-reverse;
+  display: inline-flex;
+}
+
+
+.feedback {
+  display: flex;
+  gap: 6px;
+  margin-left: 12px;
+}
+
+
+.dot {
+  width: 14px;
+  height: 14px;
+  background-color: #ccc;
+  border-radius: 50%;
+}
+
+
