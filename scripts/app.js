@@ -89,7 +89,7 @@ if(isAllCorrect){
   console.log('win')
 }else{
   let correctPlace=0
-  let wrongPlasce=0
+  let wrongPlace=0
   const guessCopy=[...guess]
   const randCopy=[...randCode]
   console.log(guessCopy)
@@ -102,30 +102,26 @@ if(isAllCorrect){
       
     }
  }
- for (let i=0;i<4;i++){
- 
-  if (guess[i]!==null){
-    console.log(guess[i])
-    const idx=randCopy.indexOf(guessCopy[i])
-    
-    console.log(idx)
+  for (let i = 0; i < 4; i++) {
+    if (guessCopy[i] === null) continue;
 
-  }else if(idx!==-1){
-    wrongPlasce++
-    
+    for (let j = 0; j < 4; j++) {
+      if (randCopy[j] !== null && guessCopy[i] == randCopy[j]) {
+        wrongPlace++;
+        randCopy[j] = null;
+        break;
+      }
+    }
   }
-  if(wrongPlasce>0){
-      console.log(`you have ${wrongPlasce} in the code`)
-  }
- 
-  }
-  if(correctPlace>0){
-    console.log(`you have ${correctPlace}`)
+  if(correctPlace===4){
+    console.log('you win')
+  }else if(correctPlace>0){
+    console.log(`you have ${correctPlace} numbers in correct place`)
+  } if(wrongPlace>0){
+    console.log(`you have ${wrongPlace} numbers corret but not in correct place`)
   }
  }
 }
-
-
 
 
 
