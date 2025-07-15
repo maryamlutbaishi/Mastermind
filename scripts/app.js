@@ -1,11 +1,12 @@
 function init(){
 /*-------------------------------- Constants --------------------------------*/
-const matriLength=4
+
 
 /*---------------------------- Variables (state) ----------------------------*/
 let guess=['','','','']
 let randCode=[]
-let turn
+let gussTF=true;
+
 
 /*------------------------ Cached Element References ------------------------*/
 const allBoxEl=document.querySelectorAll('.boxes')
@@ -58,9 +59,14 @@ function handleInput(num){
   const index=Array.from(allInput).indexOf(input)
   guess[index%4]=value
   console.log(guess)
+
+
+  if (guess.every(val => val !== '')) {
+    checkFunction()
+  }
+   
+   return guess
   
-
-
 }
 function generetCode(){
   for(let i=0;i<4;i++){
@@ -69,10 +75,60 @@ function generetCode(){
   }
   const secretNumber=randCode.join('')
   console.log('secret number is:'+secretNumber)
+  return randCode
 }
-function chickFunction(){
+function checkFunction(){
+let isAllCorrect= true
+for(let i=0;i<4;i++){
+  if(guess[i]!==randCode[i]){
+    isAllCorrect=false
+    break
+  }
+}
+if(isAllCorrect){
+  console.log('win')
+}else{
+  let correctPlace=0
+  let wrongPlasce=0
+  const guessCopy=[...guess]
+  const randCopy=[...randCode]
+  console.log(guessCopy)
+  console.log(randCopy)
+  for (let i=0;i<4;i++){
+    if(guess[i]==randCode[i]){
+      correctPlace++
+      guessCopy[i]=null
+      randCopy[i]=null
+      
+    }
+ }
+ for (let i=0;i<4;i++){
+ 
+  if (guess[i]!==null){
+    console.log(guess[i])
+    const idx=randCopy.indexOf(guessCopy[i])
+    
+    console.log(idx)
 
+  }else if(idx!==-1){
+    wrongPlasce++
+    
+  }
+  if(wrongPlasce>0){
+      console.log(`you have ${wrongPlasce} in the code`)
+  }
+ 
+  }
+  if(correctPlace>0){
+    console.log(`you have ${correctPlace}`)
+  }
+ }
 }
+
+
+
+
+
 
 
 /*----------------------------- Event Listeners -----------------------------*/
