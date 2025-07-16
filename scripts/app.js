@@ -9,10 +9,17 @@ let turn=0
 
 
 /*------------------------ Cached Element References ------------------------*/
-const allBoxEl=document.querySelectorAll('.boxes')
 const allInput=document.querySelectorAll('input')
- const feedBackEl = document.querySelectorAll('.feedback')[turn].querySelectorAll('.dot')
+const messageEl = document.getElementById('message')
+  const resetBtnEl = document.getElementById('resetBtn')
+
 /*-------------------------------- Functions --------------------------------*/
+function rmoveAllInputs() {
+  allInput.forEach(input => {
+    input.disabled = true;
+  });
+}
+
 function moveToNextInput(currentInput){
     const idx=Array.from(allInput).indexOf(currentInput)
     const lastInRow=(idx+1)%4===0 
@@ -113,8 +120,8 @@ if(isAllCorrect){
       }
     }
   }
-  //add 
- 
+  
+ const feedBackEl = document.querySelectorAll('.feedback')[turn].querySelectorAll('.dot')
 
 for (let i = 0; i < correctPlace; i++) {
   feedBackEl[i].style.backgroundColor = 'green'
@@ -123,19 +130,35 @@ for (let i = 0; i < correctPlace; i++) {
 for (let i = correctPlace; i < correctPlace + wrongPlace; i++) {
   feedBackEl[i].style.backgroundColor = 'red'
 }
-
+if(correctPlace===4){
+  messageEl.textContent='congrats, you win'
+  resetBtnEl.style.display='inline-block'
+  rmoveAllInputs()
+  return
+}
 turn++
-guess = ['', '', '', '']
 
-  if(correctPlace===4){
-    console.log('you win')
-  }else if(correctPlace>0){
-    console.log(`you have ${correctPlace} numbers in correct place`)
-  } if(wrongPlace>0){
-    console.log(`you have ${wrongPlace} numbers corret but not in correct place`)
+
+allInput.forEach((input, i) => {
+  if (Math.floor(i / 4) === turn - 1) {
+    input.disabled = true
   }
+})
+ if(turn<10){
+allInput.forEach((input,i)=>{
+  if(Math.floor(i/4)===turn){
+    input.disabled=false
+  }
+})
+allInput[turn*4].focus()
+ }else if(turn>=10){
+  messageEl.textContent='GAME OVER, try agin'
+  resetBtnEl.style.display='inline-block'
  }
 }
+ guess = ['', '', '', ''] 
+ }
+
 
 
 
@@ -146,6 +169,9 @@ allInput.forEach(input=>{
     input.setAttribute('maxlength','1')
     input.addEventListener('input', handleInput)
     input.addEventListener('keydown',handelkey)
+})
+resetBtnEl.addEventListener('click',()=>{
+  location.reload
 })
 generetCode()
 

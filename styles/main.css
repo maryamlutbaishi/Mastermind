@@ -59,4 +59,12 @@ h1 {
   background-color: #ccc;
   border-radius: 50%;
 }
+.reset{
+  display: none;
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 18px;
 
+  color:white;
+  background-color:black ;
+}
