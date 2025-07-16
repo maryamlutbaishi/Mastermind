@@ -5,13 +5,13 @@ function init(){
 /*---------------------------- Variables (state) ----------------------------*/
 let guess=['','','','']
 let randCode=[]
-let gussTF=true;
+let turn=0
 
 
 /*------------------------ Cached Element References ------------------------*/
 const allBoxEl=document.querySelectorAll('.boxes')
 const allInput=document.querySelectorAll('input')
-
+ const feedBackEl = document.querySelectorAll('.feedback')[turn].querySelectorAll('.dot')
 /*-------------------------------- Functions --------------------------------*/
 function moveToNextInput(currentInput){
     const idx=Array.from(allInput).indexOf(currentInput)
@@ -113,6 +113,20 @@ if(isAllCorrect){
       }
     }
   }
+  //add 
+ 
+
+for (let i = 0; i < correctPlace; i++) {
+  feedBackEl[i].style.backgroundColor = 'green'
+}
+
+for (let i = correctPlace; i < correctPlace + wrongPlace; i++) {
+  feedBackEl[i].style.backgroundColor = 'red'
+}
+
+turn++
+guess = ['', '', '', '']
+
   if(correctPlace===4){
     console.log('you win')
   }else if(correctPlace>0){
