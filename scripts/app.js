@@ -11,8 +11,8 @@ let turn=0
 /*------------------------ Cached Element References ------------------------*/
 const allInput=document.querySelectorAll('input')
 const messageEl = document.getElementById('message')
-  const resetBtnEl = document.getElementById('resetBtn')
-
+const resetBtnEl = document.getElementById('resetBtn')
+const dotEl=document.querySelectorAll('.dot')
 /*-------------------------------- Functions --------------------------------*/
 function rmoveAllInputs() {
   allInput.forEach(input => {
@@ -159,7 +159,22 @@ allInput[turn*4].focus()
  guess = ['', '', '', ''] 
  }
 
-
+// function restart(){
+// let guess=['','','','']
+// let randCode=[]
+// let turn=0
+// allInput.forEach(input=>{
+//   input.value=''
+//   input.disabled=false
+// })
+// dotEl.forEach(dot=>{
+//   dot.style.backgroundColor=''
+// })
+// messageEl.textContent=''
+// resetBtnEl.style.display='none'
+// generetCode()
+// allInput[0].focus()
+// }
 
 
 
@@ -170,8 +185,8 @@ allInput.forEach(input=>{
     input.addEventListener('input', handleInput)
     input.addEventListener('keydown',handelkey)
 })
-resetBtnEl.addEventListener('click',()=>{
-  location.reload
+resetBtnEl.addEventListener('click', ()=>{
+  location.reload()
 })
 generetCode()
 
