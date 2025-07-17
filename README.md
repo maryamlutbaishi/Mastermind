@@ -50,5 +50,5 @@ At first, I was mixing the logic between the two, so the game didn’t give accu
 - Allow the user to choose difficulty (number of digits or range of numbers).
 - Add animations for better feedback.
 - Sound effects for correct or wrong guesses.
-- Mobile-friendly layout and design.
+
 
