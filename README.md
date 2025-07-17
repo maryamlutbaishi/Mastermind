@@ -1,4 +1,4 @@
-# projict 1: Mastermind
+# project 1: Mastermind
 
 
 ## Introduction
@@ -33,8 +33,8 @@ This project is a digital version of the classic game Mastermind, built using HT
 ## Difficulties I Faced
 
 One of the hardest parts for me was figuring out how to correctly count:
-- How many digits are in the correct **position** (red dots).
-- How many digits are correct but in the **wrong place** (white dots).
+- How many digits are in the correct **position** (green dots).
+- How many digits are correct but in the **wrong place** (red dots).
 
 At first, I was mixing the logic between the two, so the game didn’t give accurate feedback. I had to carefully use temporary arrays to track which numbers were already matched so I don’t double-count anything. It took some time and trial and error, but eventually I understood how to separate the logic and make the feedback work correctly.
 
