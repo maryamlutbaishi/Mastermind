@@ -3,13 +3,13 @@
 
 ## Introduction
 
-This project is a digital version of the classic game **Mastermind**, built using HTML, CSS, and JavaScript. The player tries to guess a 4-digit secret code, with each guess followed by feedback dots showing how close they were. It was a great way to practice using DOM manipulation, array logic, event handling, and game logic in JavaScript.
+This project is a digital version of the classic game Mastermind, built using HTML, CSS, and JavaScript. The player tries to guess a 4-digit secret code, with each guess followed by feedback dots showing how close they were. It was a great way to practice using DOM manipulation, array logic, event handling, and game logic in JavaScript.
 
 ## Technologies Used
 
-- HTML5  
-- CSS3  
-- JavaScript (ES6)  
+- HTML
+- CSS
+- JavaScript 
 
 ## Game Rules
 
