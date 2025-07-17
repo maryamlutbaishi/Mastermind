@@ -16,8 +16,8 @@ This project is a digital version of the classic game Mastermind, built using HT
 - The secret code is a 4-digit number generated randomly.
 - The player has 10 attempts to guess the code.
 - After each guess, the game provides feedback:
-  - **Red dot**: Correct number in the correct position.
-  - **White dot**: Correct number in the wrong position.
+  - **green dot**: Correct number in the correct position.
+  - **red dot**: Correct number in the wrong position.
 - If the player guesses all four digits correctly in the right order, they win.
 - If the player uses all 10 attempts without guessing correctly, they lose.
 

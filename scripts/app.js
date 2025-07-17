@@ -152,7 +152,7 @@ allInput.forEach((input,i)=>{
 })
 allInput[turn*4].focus()
  }else if(turn>=10){
-  messageEl.textContent=`GAME OVER, try agin<br>(code: ${randCode.join('')})`
+  messageEl.textContent=`GAME OVER, try agin the wright code: ${randCode.join('')}`
   resetBtnEl.style.display='inline-block'
  }
 }
