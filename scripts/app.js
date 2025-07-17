@@ -12,7 +12,6 @@ let turn=0
 const allInput=document.querySelectorAll('input')
 const messageEl = document.getElementById('message')
 const resetBtnEl = document.getElementById('resetBtn')
-const dotEl=document.querySelectorAll('.dot')
 /*-------------------------------- Functions --------------------------------*/
 function rmoveAllInputs() {
   allInput.forEach(input => {
@@ -83,6 +82,7 @@ function generetCode(){
   const secretNumber=randCode.join('')
   console.log('secret number is:'+secretNumber)
   return randCode
+  
 }
 function checkFunction(){
 let isAllCorrect= true
@@ -131,7 +131,7 @@ for (let i = correctPlace; i < correctPlace + wrongPlace; i++) {
   feedBackEl[i].style.backgroundColor = 'red'
 }
 if(correctPlace===4){
-  messageEl.textContent='congrats, you win'
+  messageEl.textContent='Bravo!..'
   resetBtnEl.style.display='inline-block'
   rmoveAllInputs()
   return
@@ -152,7 +152,7 @@ allInput.forEach((input,i)=>{
 })
 allInput[turn*4].focus()
  }else if(turn>=10){
-  messageEl.textContent='GAME OVER, try agin'
+  messageEl.textContent=`GAME OVER, try agin<br>(code: ${randCode.join('')})`
   resetBtnEl.style.display='inline-block'
  }
 }
@@ -183,7 +183,7 @@ allInput[turn*4].focus()
 allInput.forEach(input=>{
     input.setAttribute('maxlength','1')
     input.addEventListener('input', handleInput)
-    input.addEventListener('keydown',handelkey)
+    input.addEventListener('keyup',handelkey)
 })
 resetBtnEl.addEventListener('click', ()=>{
   location.reload()
